@@ -26,6 +26,9 @@ namespace Hangman
                       "~/Content/bootstrap.css",
                       "~/Content/styles.css",
                       "~/Content/site.css"));
+
+            bundles.Add(new ScriptBundle("~/bundles/game").Include(
+                    "~/Scripts/Game.js"));
         }
     }
 }

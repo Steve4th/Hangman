@@ -28,7 +28,7 @@ namespace Hangman
                       "~/Content/site.css"));
 
             bundles.Add(new ScriptBundle("~/bundles/game").Include(
-                    "~/Scripts/Game.js"));
+                    "~/Scripts/game/game.js"));
         }
     }
 }

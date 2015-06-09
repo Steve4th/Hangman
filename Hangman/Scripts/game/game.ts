@@ -1,14 +1,7 @@
-﻿
-function testFunc1(message: string) {
-    return "hello " + message;
-}
+﻿class game {
+    activeWord: string;
 
-function testFunc2() {
-    return 42;
-}
-
-module fred {
-    class steve {
-        name = 'steve';
+    reset(newWord: string): void {
+        this.activeWord = newWord;
     }
 }

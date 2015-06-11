@@ -1,0 +1,1 @@
+{"version":3,"file":"game.js","sourceRoot":"","sources":["game.ts"],"names":["game","game.constructor","game.reset"],"mappings":"AAAA,IAAM,IAAI;IAAVA,SAAMA,IAAIA;IAMVC,CAACA;IAHGD,oBAAKA,GAALA,UAAMA,OAAeA;QACjBE,IAAIA,CAACA,UAAUA,GAAGA,OAAOA,CAACA;IAC9BA,CAACA;IACLF,WAACA;AAADA,CAACA,AAND,IAMC"}

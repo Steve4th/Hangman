@@ -21,13 +21,23 @@ var game = (function () {
         var lowerCaseActiveWord = this.activeWord.toLowerCase();
         var lowerCaseLetterToTryForMatch = letterToTryForMatch.toLowerCase();
         if (lowerCaseActiveWord.indexOf(lowerCaseLetterToTryForMatch) >= 0) {
-            this.matchedLetters.push(lowerCaseLetterToTryForMatch);
+            this.addLetterToMatchedLetters(lowerCaseLetterToTryForMatch);
             //TODO update active word display
             return true;
         }
         else {
-            this.unmatchedLetters.push(lowerCaseLetterToTryForMatch);
+            this.addLetterToUnMatchedLetters(lowerCaseLetterToTryForMatch);
             return false;
+        }
+    };
+    game.prototype.addLetterToUnMatchedLetters = function (letterToAdd) {
+        if (this.unmatchedLetters.indexOf(letterToAdd) < 0) {
+            this.unmatchedLetters.push(letterToAdd);
+        }
+    };
+    game.prototype.addLetterToMatchedLetters = function (letterToAdd) {
+        if (this.matchedLetters.indexOf(letterToAdd) < 0) {
+            this.matchedLetters.push(letterToAdd);
         }
     };
     return game;

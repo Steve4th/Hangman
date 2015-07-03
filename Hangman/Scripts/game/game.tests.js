@@ -63,5 +63,23 @@ describe("gameTests", function () {
         expect(g.tryLetterForMatch(letterToTry)).toEqual(true);
         expect(g.matchedLetters).toContain(letterToTry);
     });
+    it("Should not add a duplicate letter into the matched letters collection", function () {
+        var g = new game();
+        g.reset("abc");
+        var letterToTry = "a";
+        expect(g.tryLetterForMatch(letterToTry)).toEqual(true);
+        expect(g.matchedLetters.length).toEqual(1);
+        expect(g.tryLetterForMatch(letterToTry)).toEqual(true);
+        expect(g.matchedLetters.length).toEqual(1);
+    });
+    it("Should not add a duplicate letter into the UNmatched letters collection", function () {
+        var g = new game();
+        g.reset("abc");
+        var letterToTry = "z";
+        expect(g.tryLetterForMatch(letterToTry)).toEqual(false);
+        expect(g.unmatchedLetters.length).toEqual(1);
+        expect(g.tryLetterForMatch(letterToTry)).toEqual(false);
+        expect(g.unmatchedLetters.length).toEqual(1);
+    });
 });
 //# sourceMappingURL=game.tests.js.map

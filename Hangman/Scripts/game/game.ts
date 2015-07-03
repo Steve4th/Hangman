@@ -30,13 +30,25 @@ class game {
         var lowerCaseLetterToTryForMatch = letterToTryForMatch.toLowerCase();
 
         if (lowerCaseActiveWord.indexOf(lowerCaseLetterToTryForMatch) >= 0) {
-            this.matchedLetters.push(lowerCaseLetterToTryForMatch);
+            this.addLetterToMatchedLetters(lowerCaseLetterToTryForMatch);
             //TODO update active word display
             return true;
         }
         else {
-            this.unmatchedLetters.push(lowerCaseLetterToTryForMatch);
+            this.addLetterToUnMatchedLetters(lowerCaseLetterToTryForMatch);
             return false;
+        }
+    }
+
+    private addLetterToUnMatchedLetters(letterToAdd: string) {
+        if (this.unmatchedLetters.indexOf(letterToAdd) < 0) {
+            this.unmatchedLetters.push(letterToAdd);
+        }
+    }
+
+    private addLetterToMatchedLetters(letterToAdd: string) {
+        if (this.matchedLetters.indexOf(letterToAdd) < 0) {
+            this.matchedLetters.push(letterToAdd);
         }
     }
 }

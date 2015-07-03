@@ -37,7 +37,17 @@ describe("gameTests", function () {
     it("Should return true when trying to match a letter in the active word", function () {
         var g = new game();
         g.reset("abc");
-        expect(g.tryLetterForMatch("z")).toEqual(false);
+        expect(g.tryLetterForMatch("a")).toEqual(true);
+    });
+    it("Should return false when trying to match a letter in the active word Case insenseative", function () {
+        var g = new game();
+        g.reset("abc");
+        expect(g.tryLetterForMatch("Z")).toEqual(false);
+    });
+    it("Should return true when trying to match a letter in the active word Case insenseative", function () {
+        var g = new game();
+        g.reset("abc");
+        expect(g.tryLetterForMatch("A")).toEqual(true);
     });
     it("Should add a letter to the unmatched collection when trying to match a letter not in the active word", function () {
         var g = new game();

@@ -26,13 +26,16 @@ class game {
     }    
 
     public tryLetterForMatch(letterToTryForMatch: string): boolean {
-        if (this.activeWord.indexOf(letterToTryForMatch) >= 0) {
-            this.matchedLetters.push(letterToTryForMatch);
+        var lowerCaseActiveWord = this.activeWord.toLowerCase();
+        var lowerCaseLetterToTryForMatch = letterToTryForMatch.toLowerCase();
+
+        if (lowerCaseActiveWord.indexOf(lowerCaseLetterToTryForMatch) >= 0) {
+            this.matchedLetters.push(lowerCaseLetterToTryForMatch);
             //TODO update active word display
             return true;
         }
         else {
-            this.unmatchedLetters.push(letterToTryForMatch);
+            this.unmatchedLetters.push(lowerCaseLetterToTryForMatch);
             return false;
         }
     }

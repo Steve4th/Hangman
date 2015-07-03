@@ -18,7 +18,7 @@ var game = (function () {
         this.resetLetterCollections();
     };
     game.prototype.tryLetterForMatch = function (letterToTryForMatch) {
-        if (this.activeWord.indexOf(letterToTryForMatch) > 0) {
+        if (this.activeWord.indexOf(letterToTryForMatch) >= 0) {
             this.matchedLetters.push(letterToTryForMatch);
             //TODO update active word display
             return true;

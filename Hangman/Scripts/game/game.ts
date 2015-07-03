@@ -26,7 +26,7 @@ class game {
     }    
 
     public tryLetterForMatch(letterToTryForMatch: string): boolean {
-        if (this.activeWord.indexOf(letterToTryForMatch) > 0) {
+        if (this.activeWord.indexOf(letterToTryForMatch) >= 0) {
             this.matchedLetters.push(letterToTryForMatch);
             //TODO update active word display
             return true;

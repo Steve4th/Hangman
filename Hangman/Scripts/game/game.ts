@@ -1,54 +1,75 @@
-﻿/// <reference path="../typings/jasmine/jasmine.d.ts" />
-class game {
-    activeWord: string;
-    activeWordDisplay: string;
-    matchedLetters: string[];
-    unmatchedLetters: string[];
+﻿class LetterCollection {
+    private letters: string[];
+
+    constructor() {
+        this.letters = [];
+    }
+
+    public addLetter(letterToAdd: string): void {
+        if (this.containsLetter(letterToAdd) === false ) {
+            this.letters.push(letterToAdd);
+        }
+    }
+
+    public containsLetter(letterToTest: string): boolean {
+        return this.letters.indexOf(letterToTest) >= 0;
+    }
+
+    public length(): number {
+        if (this.letters) {
+            return this.letters.length;
+        } else {
+            return 0;
+        }
+    }
+}
+
+class Game {
+    private activeWord: string;
+    public activeWordDisplay: string;
+    public matchedLetters: LetterCollection;
+    public unmatchedLetters: LetterCollection;
 
     constructor() {
         this.reset("");
     }
 
     private resetLetterCollections() {
-        this.matchedLetters = [];
-        this.unmatchedLetters = [];
+        this.matchedLetters = new LetterCollection();
+        this.unmatchedLetters = new LetterCollection();
     }
 
-    private replaceLettersWithUnderscores(inputString: string): string {
-        var replacementRegEx = new RegExp('/[A-Z]');
-        return inputString.replace(/[a-zA-Z]+/g, "_");;
+    private formatDisplayedWord(): void {
+        var displayWord = "";
+        for (var i = 0; i < this.activeWord.length; i++) {
+            var letterToCheck = this.activeWord[i];
+            if (this.matchedLetters.containsLetter(letterToCheck)) {
+                displayWord += letterToCheck;
+            } else {
+                displayWord += "_";
+            }
+        }
+
+        this.activeWordDisplay = displayWord;
     }
 
     public reset(newWord: string): void {
-        this.activeWord = newWord;
-        this.activeWordDisplay = this.replaceLettersWithUnderscores(newWord);
         this.resetLetterCollections();
-    }    
+        this.activeWord = newWord;
+        this.formatDisplayedWord();
+    }
 
     public tryLetterForMatch(letterToTryForMatch: string): boolean {
         var lowerCaseActiveWord = this.activeWord.toLowerCase();
         var lowerCaseLetterToTryForMatch = letterToTryForMatch.toLowerCase();
 
         if (lowerCaseActiveWord.indexOf(lowerCaseLetterToTryForMatch) >= 0) {
-            this.addLetterToMatchedLetters(lowerCaseLetterToTryForMatch);
-            //TODO update active word display
+            this.matchedLetters.addLetter(lowerCaseLetterToTryForMatch);
+            this.formatDisplayedWord();
             return true;
-        }
-        else {
-            this.addLetterToUnMatchedLetters(lowerCaseLetterToTryForMatch);
+        } else {
+            this.unmatchedLetters.addLetter(lowerCaseLetterToTryForMatch);
             return false;
-        }
-    }
-
-    private addLetterToUnMatchedLetters(letterToAdd: string) {
-        if (this.unmatchedLetters.indexOf(letterToAdd) < 0) {
-            this.unmatchedLetters.push(letterToAdd);
-        }
-    }
-
-    private addLetterToMatchedLetters(letterToAdd: string) {
-        if (this.matchedLetters.indexOf(letterToAdd) < 0) {
-            this.matchedLetters.push(letterToAdd);
         }
     }
 }

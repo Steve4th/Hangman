@@ -1,45 +1,64 @@
-/// <reference path="../typings/jasmine/jasmine.d.ts" />
-var game = (function () {
-    function game() {
+var LetterCollection = (function () {
+    function LetterCollection() {
+        this.letters = [];
+    }
+    LetterCollection.prototype.addLetter = function (letterToAdd) {
+        if (this.containsLetter(letterToAdd) === false) {
+            this.letters.push(letterToAdd);
+        }
+    };
+    LetterCollection.prototype.containsLetter = function (letterToTest) {
+        return this.letters.indexOf(letterToTest) >= 0;
+    };
+    LetterCollection.prototype.length = function () {
+        if (this.letters) {
+            return this.letters.length;
+        }
+        else {
+            return 0;
+        }
+    };
+    return LetterCollection;
+})();
+var Game = (function () {
+    function Game() {
         this.reset("");
     }
-    game.prototype.resetLetterCollections = function () {
-        this.matchedLetters = [];
-        this.unmatchedLetters = [];
+    Game.prototype.resetLetterCollections = function () {
+        this.matchedLetters = new LetterCollection();
+        this.unmatchedLetters = new LetterCollection();
     };
-    game.prototype.replaceLettersWithUnderscores = function (inputString) {
-        var replacementRegEx = new RegExp('/[A-Z]');
-        return inputString.replace(/[a-zA-Z]+/g, "_");
-        ;
+    Game.prototype.formatDisplayedWord = function () {
+        var displayWord = "";
+        for (var i = 0; i < this.activeWord.length; i++) {
+            var letterToCheck = this.activeWord[i];
+            if (this.matchedLetters.containsLetter(letterToCheck)) {
+                displayWord += letterToCheck;
+            }
+            else {
+                displayWord += "_";
+            }
+        }
+        this.activeWordDisplay = displayWord;
     };
-    game.prototype.reset = function (newWord) {
-        this.activeWord = newWord;
-        this.activeWordDisplay = this.replaceLettersWithUnderscores(newWord);
+    Game.prototype.reset = function (newWord) {
         this.resetLetterCollections();
+        this.activeWord = newWord;
+        this.formatDisplayedWord();
     };
-    game.prototype.tryLetterForMatch = function (letterToTryForMatch) {
+    Game.prototype.tryLetterForMatch = function (letterToTryForMatch) {
         var lowerCaseActiveWord = this.activeWord.toLowerCase();
         var lowerCaseLetterToTryForMatch = letterToTryForMatch.toLowerCase();
         if (lowerCaseActiveWord.indexOf(lowerCaseLetterToTryForMatch) >= 0) {
-            this.addLetterToMatchedLetters(lowerCaseLetterToTryForMatch);
-            //TODO update active word display
+            this.matchedLetters.addLetter(lowerCaseLetterToTryForMatch);
+            this.formatDisplayedWord();
             return true;
         }
         else {
-            this.addLetterToUnMatchedLetters(lowerCaseLetterToTryForMatch);
+            this.unmatchedLetters.addLetter(lowerCaseLetterToTryForMatch);
             return false;
         }
     };
-    game.prototype.addLetterToUnMatchedLetters = function (letterToAdd) {
-        if (this.unmatchedLetters.indexOf(letterToAdd) < 0) {
-            this.unmatchedLetters.push(letterToAdd);
-        }
-    };
-    game.prototype.addLetterToMatchedLetters = function (letterToAdd) {
-        if (this.matchedLetters.indexOf(letterToAdd) < 0) {
-            this.matchedLetters.push(letterToAdd);
-        }
-    };
-    return game;
+    return Game;
 })();
 //# sourceMappingURL=game.js.map

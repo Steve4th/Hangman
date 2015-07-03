@@ -6,5 +6,13 @@ describe("WordServiceTests", function () {
         var word = serv.getWord();
         expect(word.length).toBeGreaterThan(0);
     });
+    it("Should return a different word from the getWord function when called a second time", function () {
+        var serv = new WordService();
+        var wordOne = serv.getWord();
+        expect(wordOne.length).toBeGreaterThan(0);
+        var wordTwo = serv.getWord();
+        expect(wordTwo.length).toBeGreaterThan(0);
+        expect(wordOne).not.toEqual(wordTwo);
+    });
 });
 //# sourceMappingURL=wordservice.tests.js.map

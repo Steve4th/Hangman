@@ -21,8 +21,8 @@ var LetterCollection = (function () {
     return LetterCollection;
 })();
 var Game = (function () {
-    function Game() {
-        this.reset("");
+    function Game(newWord) {
+        this.reset(newWord);
     }
     Game.prototype.resetLetterCollections = function () {
         this.matchedLetters = new LetterCollection();

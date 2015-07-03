@@ -30,8 +30,8 @@ class Game {
     public matchedLetters: LetterCollection;
     public unmatchedLetters: LetterCollection;
 
-    constructor() {
-        this.reset("");
+    constructor(newWord: string) {
+        this.reset(newWord);
     }
 
     private resetLetterCollections() {
@@ -53,7 +53,7 @@ class Game {
         this.activeWordDisplay = displayWord;
     }
 
-    public reset(newWord: string): void {
+    private reset(newWord: string): void {
         this.resetLetterCollections();
         this.activeWord = newWord;
         this.formatDisplayedWord();

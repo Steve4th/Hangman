@@ -1,6 +1,6 @@
 /// <reference path="../typings/jasmine/jasmine.d.ts" />
 /// <chutzpah_reference path="game.js" />
-describe("letterCollectionTests", function () {
+describe("LetterCollectionTests", function () {
     it("Should not add a duplicate letter into the letters collection", function () {
         var collection = new LetterCollection();
         expect(collection.length()).toEqual(0);
@@ -11,27 +11,23 @@ describe("letterCollectionTests", function () {
         expect(collection.length()).toEqual(1);
     });
 });
-describe("gameTests", function () {
+describe("GameTests", function () {
     it("Should display underscore for each letter in word for a new game", function () {
-        var g = new Game();
-        g.reset("hangman");
+        var g = new Game("hangman");
         expect(g.activeWordDisplay).toEqual("_______");
     });
     it("Should include single matched letter in the display word", function () {
-        var g = new Game();
-        g.reset("hangman");
+        var g = new Game("hangman");
         g.tryLetterForMatch("h");
         expect(g.activeWordDisplay).toEqual("h______");
     });
     it("Should include multiple matched letters in the display word", function () {
-        var g = new Game();
-        g.reset("hangman");
+        var g = new Game("hangman");
         g.tryLetterForMatch("a");
         expect(g.activeWordDisplay).toEqual("_a___a_");
     });
     it("Should include matched letters in the display word", function () {
-        var g = new Game();
-        g.reset("hangman");
+        var g = new Game("hangman");
         g.tryLetterForMatch("a");
         expect(g.activeWordDisplay).toEqual("_a___a_");
         g.tryLetterForMatch("n");
@@ -43,52 +39,38 @@ describe("gameTests", function () {
         g.tryLetterForMatch("g");
         expect(g.activeWordDisplay).toEqual("hangman");
     });
-    it("Should empty the matched letters collection on reset", function () {
-        var g = new Game();
-        g.matchedLetters.addLetter("a");
-        g.matchedLetters.addLetter("b");
-        expect(g.matchedLetters.length()).toBeGreaterThan(0);
-        g.reset("hangman");
+    it("Should empty the matched letters collection on constructor", function () {
+        var g = new Game("hangman");
         expect(g.matchedLetters.length()).toEqual(0);
     });
-    it("Should empty the UNmatched letters collection on reset", function () {
-        var g = new Game();
-        g.unmatchedLetters.addLetter("a");
-        g.unmatchedLetters.addLetter("b");
-        expect(g.unmatchedLetters.length()).toBeGreaterThan(0);
-        g.reset("hangman");
+    it("Should empty the UNmatched letters collection on constructor", function () {
+        var g = new Game("hangman");
         expect(g.unmatchedLetters.length()).toEqual(0);
     });
     it("Should return false when trying to match a letter in the active word", function () {
-        var g = new Game();
-        g.reset("abc");
+        var g = new Game("abc");
         expect(g.tryLetterForMatch("z")).toEqual(false);
     });
     it("Should return true when trying to match a letter in the active word", function () {
-        var g = new Game();
-        g.reset("abc");
+        var g = new Game("abc");
         expect(g.tryLetterForMatch("a")).toEqual(true);
     });
     it("Should return false when trying to match a letter in the active word Case insenseative", function () {
-        var g = new Game();
-        g.reset("abc");
+        var g = new Game("abc");
         expect(g.tryLetterForMatch("Z")).toEqual(false);
     });
     it("Should return true when trying to match a letter in the active word Case insenseative", function () {
-        var g = new Game();
-        g.reset("abc");
+        var g = new Game("abc");
         expect(g.tryLetterForMatch("A")).toEqual(true);
     });
     it("Should add a letter to the unmatched collection when trying to match a letter not in the active word", function () {
-        var g = new Game();
-        g.reset("abc");
+        var g = new Game("abc");
         var letterToTry = "z";
         expect(g.tryLetterForMatch(letterToTry)).toEqual(false);
         expect(g.unmatchedLetters.containsLetter(letterToTry)).toEqual(true);
     });
     it("Should add a letter to the matched collection when trying to match a letter in the active word", function () {
-        var g = new Game();
-        g.reset("abc");
+        var g = new Game("abc");
         var letterToTry = "a";
         expect(g.tryLetterForMatch(letterToTry)).toEqual(true);
         expect(g.matchedLetters.length()).toEqual(1);

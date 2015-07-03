@@ -203,7 +203,12 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\Api\Views\web.config" />
     <None Include="Properties\PublishProfiles\HangmanGame.pubxml" />
+    <Content Include="Scripts\game\game.js.map" />
+    <Content Include="Scripts\game\game.tests.js.map" />
+    <Content Include="Scripts\chutzpah.json" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\game\game.js" />
+    <Content Include="Scripts\game\game.tests.js" />
     <Content Include="Scripts\jasmine-samples\Player.js" />
     <Content Include="Scripts\jasmine-samples\PlayerSpec.js" />
     <Content Include="Scripts\jasmine-samples\Song.js" />

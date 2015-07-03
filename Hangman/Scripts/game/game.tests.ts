@@ -108,6 +108,6 @@ describe("gameTests", function () {
         g.reset("abc");
         var letterToTry = "a";
         expect(g.tryLetterForMatch(letterToTry)).toEqual(true);
-        //expect(g.matchedLetters.length).toEqual(1);
+        expect(g.matchedLetters.length()).toEqual(1);
     });
 });

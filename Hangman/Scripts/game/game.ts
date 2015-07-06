@@ -73,3 +73,12 @@ class Game {
         }
     }
 }
+
+class GameFactory {
+    public NewGame(): Game {
+        var wordServ = new WordService();
+        var wordToGuess = wordServ.getWord();
+        var game = new Game(wordToGuess);
+        return game;
+    }
+}

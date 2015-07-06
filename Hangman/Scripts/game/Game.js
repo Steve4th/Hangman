@@ -61,4 +61,15 @@ var Game = (function () {
     };
     return Game;
 })();
+var GameFactory = (function () {
+    function GameFactory() {
+    }
+    GameFactory.prototype.NewGame = function () {
+        var wordServ = new WordService();
+        var wordToGuess = wordServ.getWord();
+        var game = new Game(wordToGuess);
+        return game;
+    };
+    return GameFactory;
+})();
 //# sourceMappingURL=game.js.map

@@ -27,11 +27,11 @@ namespace Hangman
                       "~/Content/site.css"));
 
             bundles.Add(new ScriptBundle("~/bundles/game").Include(
-                    "~/Scripts/game/game.js"));
+                    "~/Scripts/game/game.js",
+                    "~/Scripts/playgame.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/knockout").Include(
-                    "~/Scripts/knockout-{version}.js"
-                ));
+                    "~/Scripts/knockout-{version}.js"));
         }
     }
 }

@@ -82,3 +82,9 @@ class GameFactory {
         return game;
     }
 }
+
+class WordService {
+    public getWord(): string {
+        return "hangman";
+    }
+}

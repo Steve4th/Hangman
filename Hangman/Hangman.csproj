@@ -206,13 +206,9 @@
     <Content Include="Scripts\game\game.js.map" />
     <Content Include="Scripts\game\game.tests.js.map" />
     <Content Include="Scripts\chutzpah.json" />
-    <Content Include="Scripts\game\wordService.js.map" />
-    <Content Include="Scripts\game\wordservice.tests.js.map" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\game\game.js" />
     <Content Include="Scripts\game\game.tests.js" />
-    <Content Include="Scripts\game\wordService.js" />
-    <Content Include="Scripts\game\wordservice.tests.js" />
     <Content Include="Scripts\jasmine-samples\Player.js" />
     <Content Include="Scripts\jasmine-samples\PlayerSpec.js" />
     <Content Include="Scripts\jasmine-samples\Song.js" />
@@ -291,8 +287,6 @@
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\game\game.tests.ts" />
     <TypeScriptCompile Include="Scripts\game\game.ts" />
-    <TypeScriptCompile Include="Scripts\game\wordservice.tests.ts" />
-    <TypeScriptCompile Include="Scripts\game\wordService.ts" />
     <TypeScriptCompile Include="Scripts\typings\jasmine\jasmine.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\jquery\jquery.d.ts" />
   </ItemGroup>

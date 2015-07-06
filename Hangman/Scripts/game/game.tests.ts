@@ -102,3 +102,11 @@ describe("GameFactoryTests", function() {
         expect(game.unmatchedLetters.length()).toEqual(0);
     });
 });
+
+describe("WordServiceTests", function () {
+    it("Should return a word from the getWord function", function () {
+        var serv = new WordService();
+        var word = serv.getWord();
+        expect(word.length).toBeGreaterThan(0);
+    });
+});

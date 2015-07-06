@@ -72,4 +72,12 @@ var GameFactory = (function () {
     };
     return GameFactory;
 })();
+var WordService = (function () {
+    function WordService() {
+    }
+    WordService.prototype.getWord = function () {
+        return "hangman";
+    };
+    return WordService;
+})();
 //# sourceMappingURL=game.js.map

@@ -1,1 +1,0 @@
-{"version":3,"file":"wordService.js","sourceRoot":"","sources":["wordService.ts"],"names":["WordService","WordService.constructor","WordService.getWord"],"mappings":"AAAA,IAAM,WAAW;IAAjBA,SAAMA,WAAWA;IAIjBC,CAACA;IAHUD,6BAAOA,GAAdA;QACIE,MAAMA,CAACA,SAASA,CAACA;IACrBA,CAACA;IACLF,kBAACA;AAADA,CAACA,AAJD,IAIC"}

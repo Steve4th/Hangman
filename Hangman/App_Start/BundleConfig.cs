@@ -28,7 +28,7 @@ namespace Hangman
 
             bundles.Add(new ScriptBundle("~/bundles/game").Include(
                     "~/Scripts/game/game.js",
-                    "~/Scripts/playgame.js"));
+                    "~/Scripts/game/playgame.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/knockout").Include(
                     "~/Scripts/knockout-{version}.js"));

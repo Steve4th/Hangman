@@ -64,20 +64,27 @@ var Game = (function () {
 var GameFactory = (function () {
     function GameFactory() {
     }
-    GameFactory.prototype.NewGame = function () {
-        var wordServ = new WordService();
+    GameFactory.prototype.NewGame = function (wordServ) {
         var wordToGuess = wordServ.getWord();
         var game = new Game(wordToGuess);
         return game;
     };
     return GameFactory;
 })();
-var WordService = (function () {
-    function WordService() {
+var FixedResponseWordService = (function () {
+    function FixedResponseWordService() {
     }
-    WordService.prototype.getWord = function () {
+    FixedResponseWordService.prototype.getWord = function () {
         return "hangman";
     };
-    return WordService;
+    return FixedResponseWordService;
+})();
+var AjaxWordService = (function () {
+    function AjaxWordService() {
+    }
+    AjaxWordService.prototype.getWord = function () {
+        return "TODO Get Word from Ajax";
+    };
+    return AjaxWordService;
 })();
 //# sourceMappingURL=game.js.map

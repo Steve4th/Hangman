@@ -79,18 +79,20 @@ describe("GameTests", function () {
 describe("GameFactoryTests", function () {
     it("Should return a game", function () {
         var factory = new GameFactory();
-        var game = factory.NewGame();
+        var wordService = new FixedResponseWordService();
+        var game = factory.NewGame(wordService);
         expect(game).not.toBeNull();
         expect(game.activeWordDisplay.length).toBeGreaterThan(0);
         expect(game.matchedLetters.length()).toEqual(0);
         expect(game.unmatchedLetters.length()).toEqual(0);
     });
 });
-describe("WordServiceTests", function () {
+describe("FixedResponseWordServiceTests", function () {
     it("Should return a word from the getWord function", function () {
-        var serv = new WordService();
+        var serv = new FixedResponseWordService();
         var word = serv.getWord();
         expect(word.length).toBeGreaterThan(0);
+        expect(word).toEqual("hangman");
     });
 });
 //# sourceMappingURL=game.tests.js.map

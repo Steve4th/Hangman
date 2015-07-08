@@ -2,15 +2,32 @@
 /// <reference path="../typings/knockout/knockout.d.ts" />
 
 $(document).ready(function () {
-    var wordServ = new FixedResponseWordService();
-    var factory = new GameFactory();
-    var hangmanGame = factory.NewGame(wordServ);
+    var hangmanGame = new GameViewModel();
     ko.applyBindings(hangmanGame, document.getElementById("gameContainer"));
 }); 
 
 
 class GameViewModel {
-     public wordDisplay = ko.observable("");
+    private currentGame: Game;
 
-    
+    constructor() {
+        this.startGame();
+    }
+
+    private startGame() {
+        var wordServ = new FixedResponseWordService();
+        var factory = new GameFactory();
+        this.currentGame = factory.NewGame(wordServ);
+        
+        this.phraseDisplay(this.currentGame.activeWordDisplay);
+        this.letterGuess("");
+    }
+
+    public phraseDisplay = ko.observable("");
+    public letterGuess = ko.observable("");
+
+    public guessLetter() {
+        this.currentGame.tryLetterForMatch(this.letterGuess());
+        this.phraseDisplay(this.currentGame.activeWordDisplay);
+    }
 }

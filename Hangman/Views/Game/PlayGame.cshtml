@@ -8,7 +8,7 @@
         <img id="HangmanSituation" alt="" src="~/Content/khangman.png" style="width: 80px; height: 80px" class="img-rounded">
     </div>
     <div class="col-md-10 col-sm-9">
-        <h2 data-bind="activeWordDisplay"></h2>
+        <h2 data-bind="text: phraseDisplay"></h2>
         <small style="font-family: courier, 'new courier';" class="text-muted">X guesses left</small>
         <br/>
         <br/>
@@ -17,8 +17,10 @@
                 Enter Your Guess Here:
             </div>
             <div class="col-xs-4">
-                <input type="text" class="form-control"/>
-                <button class="btn btn-primary btn-sm" data-bind="click: ">Guess</button>
+                <div class="form-group">
+                    <input class="form-control" data-bind="value: letterGuess, valueUpdate: 'keyup'" maxlength="1"/>
+                    <button class="btn btn-primary btn-sm" data-bind="click: guessLetter, enable: letterGuess().length > 0">Guess</button>
+                </div>
             </div>
         </div>
     </div>

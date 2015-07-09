@@ -206,9 +206,11 @@
     <Content Include="Scripts\game\game.js.map" />
     <Content Include="Scripts\game\game.tests.js.map" />
     <Content Include="Scripts\chutzpah.json" />
+    <Content Include="Scripts\game\PlayGame.js.map" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\game\game.js" />
     <Content Include="Scripts\game\game.tests.js" />
+    <Content Include="Scripts\game\PlayGame.js" />
     <Content Include="Scripts\jasmine\boot.js" />
     <Content Include="Scripts\jasmine\console.js" />
     <Content Include="Scripts\jasmine\jasmine-html.js" />

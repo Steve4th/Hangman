@@ -75,25 +75,25 @@ class Game {
 }
 
 class GameFactory {
-    public NewGame(wordServ: IWordService): Game {
-        var wordToGuess = wordServ.getWord();
-        var game = new Game(wordToGuess);
+    public NewGame(phraseService: IPhraseService): Game {
+        var phraseToGuess = phraseService.getPhrase();
+        var game = new Game(phraseToGuess);
         return game;
     }
 }
 
-interface IWordService {
-    getWord() : string
+interface IPhraseService {
+    getPhrase() : string
 }
 
-class FixedResponseWordService implements IWordService {
-    public getWord(): string {
+class FixedResponsePhraseService implements IPhraseService {
+    public getPhrase(): string {
         return "hangman";
     }
 }
 
-class AjaxWordService implements IWordService {
-    public getWord(): string {
+class AjaxPhraseService implements IPhraseService {
+    public getPhrase(): string {
         return "TODO Get Word from Ajax"
     }
 }

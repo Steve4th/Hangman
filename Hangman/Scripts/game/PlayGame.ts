@@ -15,7 +15,7 @@ class GameViewModel {
     }
 
     private startGame() {
-        var wordServ = new FixedResponseWordService();
+        var wordServ = new FixedResponsePhraseService();
         var factory = new GameFactory();
         this.currentGame = factory.NewGame(wordServ);
         

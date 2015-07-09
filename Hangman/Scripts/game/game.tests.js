@@ -79,7 +79,7 @@ describe("GameTests", function () {
 describe("GameFactoryTests", function () {
     it("Should return a game", function () {
         var factory = new GameFactory();
-        var wordService = new FixedResponseWordService();
+        var wordService = new FixedResponsePhraseService();
         var game = factory.NewGame(wordService);
         expect(game).not.toBeNull();
         expect(game.activeWordDisplay.length).toBeGreaterThan(0);
@@ -87,12 +87,12 @@ describe("GameFactoryTests", function () {
         expect(game.unmatchedLetters.length()).toEqual(0);
     });
 });
-describe("FixedResponseWordServiceTests", function () {
-    it("Should return a word from the getWord function", function () {
-        var serv = new FixedResponseWordService();
-        var word = serv.getWord();
-        expect(word.length).toBeGreaterThan(0);
-        expect(word).toEqual("hangman");
+describe("FixedResponsePhraseServiceTests", function () {
+    it("Should return a Phrase from the getPhrase function", function () {
+        var serv = new FixedResponsePhraseService();
+        var phrase = serv.getPhrase();
+        expect(phrase.length).toBeGreaterThan(0);
+        expect(phrase).toEqual("hangman");
     });
 });
 //# sourceMappingURL=game.tests.js.map

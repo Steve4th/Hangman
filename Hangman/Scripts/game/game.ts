@@ -30,6 +30,8 @@ class Game {
     public matchedLetters: LetterCollection;
     public unmatchedLetters: LetterCollection;
 
+    public attemptsRemaining: number = 5;
+
     constructor(newWord: string) {
         this.reset(newWord);
     }
@@ -57,6 +59,7 @@ class Game {
         this.resetLetterCollections();
         this.activeWord = newWord;
         this.formatDisplayedWord();
+        this.attemptsRemaining = 5;
     }
 
     public tryLetterForMatch(letterToTryForMatch: string): boolean {
@@ -69,6 +72,7 @@ class Game {
             return true;
         } else {
             this.unmatchedLetters.addLetter(lowerCaseLetterToTryForMatch);
+            this.attemptsRemaining--;
             return false;
         }
     }

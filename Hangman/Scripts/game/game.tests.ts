@@ -1,7 +1,7 @@
 ﻿/// <reference path="../typings/jasmine/jasmine.d.ts" />
 /// <chutzpah_reference path="game.js" />
 
-describe("LetterCollectionTests", function () {
+describe("LetterCollection Tests", function () {
     it("Should not add a duplicate letter into the letters collection", function () {
         var collection = new LetterCollection();
         expect(collection.length()).toEqual(0);
@@ -15,7 +15,7 @@ describe("LetterCollectionTests", function () {
     });
 });
 
-describe("GameTests", function () {
+describe("Game Letter Guessing Tests", function () {
     it("Should display underscore for each letter in word for a new game", function () {
         var g = new Game("hangman");
         expect(g.activeWordDisplay).toEqual("_______");
@@ -92,7 +92,31 @@ describe("GameTests", function () {
     });
 });
 
-describe("GameFactoryTests", function() {
+describe("Game Attempts Remiaining Tests", function () {
+    it("Should have 5 attempts remaining at the start of a game", function () {
+        var g = new Game("abc");
+        expect(g.attemptsRemaining).toEqual(5);
+    });
+
+    it("Should decriment the attempts remaining when a letter does not match", function () {
+        var g = new Game("abc");
+        expect(g.attemptsRemaining).toEqual(5);
+        var letterToTry = "x";
+        expect(g.tryLetterForMatch(letterToTry)).toEqual(false);
+        expect(g.attemptsRemaining).toEqual(4);
+    });
+
+    it("should not change the attempts remaining when a letter does match", function () {
+        var g = new Game("abc");
+        expect(g.attemptsRemaining).toEqual(5);
+        var letterToTry = "a";
+        expect(g.tryLetterForMatch(letterToTry)).toEqual(true);
+        expect(g.attemptsRemaining).toEqual(5);
+    });
+
+});
+
+describe("Game Factory Tests", function() {
     it("Should return a game", function () {
         var factory = new GameFactory();
         var wordService = new FixedResponsePhraseService();
@@ -104,7 +128,7 @@ describe("GameFactoryTests", function() {
     });
 });
 
-describe("FixedResponsePhraseServiceTests", function () {
+describe("Fixed Response Phrase Service Tests", function () {
     it("Should return a Phrase from the getPhrase function", function () {
         var serv = new FixedResponsePhraseService();
         var phrase = serv.getPhrase();

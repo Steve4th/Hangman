@@ -22,6 +22,7 @@ var LetterCollection = (function () {
 })();
 var Game = (function () {
     function Game(newWord) {
+        this.attemptsRemaining = 5;
         this.reset(newWord);
     }
     Game.prototype.resetLetterCollections = function () {
@@ -45,6 +46,7 @@ var Game = (function () {
         this.resetLetterCollections();
         this.activeWord = newWord;
         this.formatDisplayedWord();
+        this.attemptsRemaining = 5;
     };
     Game.prototype.tryLetterForMatch = function (letterToTryForMatch) {
         var lowerCaseActiveWord = this.activeWord.toLowerCase();
@@ -56,6 +58,7 @@ var Game = (function () {
         }
         else {
             this.unmatchedLetters.addLetter(lowerCaseLetterToTryForMatch);
+            this.attemptsRemaining--;
             return false;
         }
     };

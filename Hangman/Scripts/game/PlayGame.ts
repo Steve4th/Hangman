@@ -25,9 +25,11 @@ class GameViewModel {
 
     public phraseDisplay = ko.observable("");
     public letterGuess = ko.observable("");
+    public attemptsRemaining = ko.observable(5);
 
     public guessLetter() {
         this.currentGame.tryLetterForMatch(this.letterGuess());
         this.phraseDisplay(this.currentGame.activeWordDisplay);
+        this.attemptsRemaining(this.currentGame.attemptsRemaining);
     }
 }

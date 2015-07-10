@@ -5,7 +5,7 @@ VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hangman", "Hangman\Hangman.csproj", "{057C66F5-14FD-46EB-957C-7CA94D11DC94}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hangman.Tests", "..\..\Documents\Visual Studio 2013\Projects\Hangman\Hangman.Tests\Hangman.Tests.csproj", "{B7629BED-6F45-4CF2-90A7-740FC354FE93}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hangman.Tests", "Hangman.Tests\Hangman.Tests.csproj", "{B7629BED-6F45-4CF2-90A7-740FC354FE93}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PublishScripts", "PublishScripts", "{FDC70BA7-7489-4E3B-A3D2-17DB0A0735BE}"
 	ProjectSection(SolutionItems) = preProject

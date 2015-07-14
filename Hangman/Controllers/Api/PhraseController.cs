@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Hangman.DataAccess;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -9,14 +10,18 @@ namespace Hangman.Areas.Api.Controllers
 {
     public class PhraseController : ApiController
     {
-        public string Get(int id)
+        private readonly IWordListReader _wordListReader;
+
+        public PhraseController(IWordListReader wordListReader)
         {
-            return "Phrase By ID";
+            _wordListReader = wordListReader;
         }
 
         public string Get()
         {
-            return "Random";
+            var words = _wordListReader.GetAllWords();
+            var wordToReturn = words.First();
+            return wordToReturn;
         }
     }
 }

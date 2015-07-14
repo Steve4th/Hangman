@@ -1,4 +1,5 @@
 ﻿using Hangman.Areas.Api.Controllers;
+using Hangman.DataAccess;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
@@ -14,19 +15,11 @@ namespace Hangman.Tests.Api
         [TestMethod]
         public void GetPhrase_NoParameters_ExpectPhraseTermReturned()
         {
-            var apiController = new PhraseController();
+            var wordListReader = new WordListFileReader();
+            var apiController = new PhraseController(wordListReader);
             string response = apiController.Get();
             Console.WriteLine(response);
             Assert.IsFalse(string.IsNullOrEmpty(response));
-        }
-
-        [TestMethod]
-        public void GetPhrase_IdSpecified_ExpectPhraseTermReturned()
-        {
-            var apiController = new PhraseController();
-            string response = apiController.Get(1);
-            Console.WriteLine(response);
-            Assert.IsFalse(string.IsNullOrEmpty(response));            
         }
     }
 }

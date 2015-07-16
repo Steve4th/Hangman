@@ -224,6 +224,8 @@
     <Compile Include="Controllers\JasmineController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="DataAccess\IWordListReader.cs" />
+    <Compile Include="DataAccess\PickWordListExtension.cs" />
+    <Compile Include="DataAccess\RandomNumberPicker.cs" />
     <Compile Include="DataAccess\WordListFileReader.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

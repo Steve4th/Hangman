@@ -226,6 +226,7 @@
     <Compile Include="DataAccess\IWordListReader.cs" />
     <Compile Include="DataAccess\PickWordListExtension.cs" />
     <Compile Include="DataAccess\RandomNumberPicker.cs" />
+    <Compile Include="DataAccess\WordFactory.cs" />
     <Compile Include="DataAccess\WordListFileReader.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

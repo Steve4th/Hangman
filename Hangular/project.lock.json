@@ -3,6 +3,17 @@
   "version": -9996,
   "targets": {
     "DNX,Version=v4.5.1": {
+      "angularjs.TypeScript.DefinitelyTyped/4.0.9": {
+        "dependencies": {
+          "jquery.TypeScript.DefinitelyTyped": null
+        }
+      },
+      "gulp.TypeScript.DefinitelyTyped/0.0.7": {
+        "dependencies": {
+          "node.TypeScript.DefinitelyTyped": null
+        }
+      },
+      "jquery.TypeScript.DefinitelyTyped/2.2.6": {},
       "Microsoft.AspNet.DataProtection.Abstractions/1.0.0-beta5": {
         "dependencies": {
           "Microsoft.Framework.Runtime.Abstractions": "1.0.0-beta5"
@@ -512,9 +523,21 @@
         "runtime": {
           "lib/net45/Newtonsoft.Json.dll": {}
         }
-      }
+      },
+      "node.TypeScript.DefinitelyTyped/1.6.6": {}
     },
     "DNXCore,Version=v5.0": {
+      "angularjs.TypeScript.DefinitelyTyped/4.0.9": {
+        "dependencies": {
+          "jquery.TypeScript.DefinitelyTyped": null
+        }
+      },
+      "gulp.TypeScript.DefinitelyTyped/0.0.7": {
+        "dependencies": {
+          "node.TypeScript.DefinitelyTyped": null
+        }
+      },
+      "jquery.TypeScript.DefinitelyTyped/2.2.6": {},
       "Microsoft.AspNet.DataProtection.Abstractions/1.0.0-beta5": {
         "dependencies": {
           "Microsoft.Framework.Runtime.Abstractions": "1.0.0-beta5",
@@ -1043,6 +1066,7 @@
           "lib/portable-net45+wp80+win8+wpa81+aspnetcore50/Newtonsoft.Json.dll": {}
         }
       },
+      "node.TypeScript.DefinitelyTyped/1.6.6": {},
       "System.Collections/4.0.10-beta-23019": {
         "dependencies": {
           "System.Runtime": "4.0.20-beta-23019"
@@ -1894,6 +1918,39 @@
     }
   },
   "libraries": {
+    "angularjs.TypeScript.DefinitelyTyped/4.0.9": {
+      "sha512": "p2qTMBKh0jSW/xO39fKus+gV7DJhtgmk5bk3B11ha/+D6o63qMditoHR99uB7ycd7WiaByIGc72lhHpjLNJoIw==",
+      "files": [
+        "angularjs.TypeScript.DefinitelyTyped.4.0.9.nupkg",
+        "angularjs.TypeScript.DefinitelyTyped.4.0.9.nupkg.sha512",
+        "angularjs.TypeScript.DefinitelyTyped.nuspec",
+        "Content/Scripts/typings/angularjs/angular-animate.d.ts",
+        "Content/Scripts/typings/angularjs/angular-cookies.d.ts",
+        "Content/Scripts/typings/angularjs/angular-mocks.d.ts",
+        "Content/Scripts/typings/angularjs/angular-resource.d.ts",
+        "Content/Scripts/typings/angularjs/angular-route.d.ts",
+        "Content/Scripts/typings/angularjs/angular-sanitize.d.ts",
+        "Content/Scripts/typings/angularjs/angular.d.ts"
+      ]
+    },
+    "gulp.TypeScript.DefinitelyTyped/0.0.7": {
+      "sha512": "jkZkcF0o0UMwRq8htnhTb5MFIP9EeNZzotJAwWhIAQEWk1/B1EJTwxiErdyXNkgLv3mXvrwsN48aHHlTwMG3ag==",
+      "files": [
+        "gulp.TypeScript.DefinitelyTyped.0.0.7.nupkg",
+        "gulp.TypeScript.DefinitelyTyped.0.0.7.nupkg.sha512",
+        "gulp.TypeScript.DefinitelyTyped.nuspec",
+        "Content/Scripts/typings/gulp/gulp.d.ts"
+      ]
+    },
+    "jquery.TypeScript.DefinitelyTyped/2.2.6": {
+      "sha512": "5ijrQyoUBG8GCjVSxohED12QGrq6QZbylR73/5KoApTHY6iChCoAEUdojhW2FcRWEllmZ0JZ2nISiLqtjccH8g==",
+      "files": [
+        "jquery.TypeScript.DefinitelyTyped.2.2.6.nupkg",
+        "jquery.TypeScript.DefinitelyTyped.2.2.6.nupkg.sha512",
+        "jquery.TypeScript.DefinitelyTyped.nuspec",
+        "Content/Scripts/typings/jquery/jquery.d.ts"
+      ]
+    },
     "Microsoft.AspNet.DataProtection.Abstractions/1.0.0-beta5": {
       "serviceable": true,
       "sha512": "Ow8W+rMtA0rsiCtvHtUs+f5wrzMj0rtoSjl+vTgtGNQ0Ib+3tsGbKgA9+l5kzGKG6RUebnCK+vXKP/zCXDZOvw==",
@@ -2367,6 +2424,18 @@
         "lib/portable-net45+wp80+win8+wpa81+aspnetcore50/Newtonsoft.Json.dll",
         "lib/portable-net45+wp80+win8+wpa81+aspnetcore50/Newtonsoft.Json.xml",
         "tools/install.ps1"
+      ]
+    },
+    "node.TypeScript.DefinitelyTyped/1.6.6": {
+      "sha512": "Rj3obEvyrg5r47HmtUKvE0a4/aqT1WkVsBk7cylo+dB30mauEVF9bvevgr1LYpY0kutImCQrW3XxBiH1LDofDw==",
+      "files": [
+        "node.TypeScript.DefinitelyTyped.1.6.6.nupkg",
+        "node.TypeScript.DefinitelyTyped.1.6.6.nupkg.sha512",
+        "node.TypeScript.DefinitelyTyped.nuspec",
+        "Content/Scripts/typings/node/node-0.10.d.ts",
+        "Content/Scripts/typings/node/node-0.11.d.ts",
+        "Content/Scripts/typings/node/node-0.8.8.d.ts",
+        "Content/Scripts/typings/node/node.d.ts"
       ]
     },
     "System.Collections/4.0.10-beta-23019": {
@@ -3171,7 +3240,11 @@
   "projectFileDependencyGroups": {
     "": [
       "Microsoft.AspNet.Server.IIS >= 1.0.0-beta5",
-      "Microsoft.AspNet.Server.WebListener >= 1.0.0-beta5"
+      "Microsoft.AspNet.Server.WebListener >= 1.0.0-beta5",
+      "gulp.TypeScript.DefinitelyTyped >= 0.0.7",
+      "node.TypeScript.DefinitelyTyped >= 1.6.6",
+      "angularjs.TypeScript.DefinitelyTyped >= 4.0.9",
+      "jquery.TypeScript.DefinitelyTyped >= 2.2.6"
     ],
     "DNX,Version=v4.5.1": [],
     "DNXCore,Version=v5.0": []

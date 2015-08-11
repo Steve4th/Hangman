@@ -5,6 +5,7 @@
   "dependencies": {
     "Microsoft.AspNet.Server.IIS": "1.0.0-beta5",
     "Microsoft.AspNet.Server.WebListener": "1.0.0-beta5",
+    "Microsoft.AspNet.StaticFiles": "1.0.0-beta5",
     "gulp.TypeScript.DefinitelyTyped": "0.0.7",
     "node.TypeScript.DefinitelyTyped": "1.6.6",
     "angularjs.TypeScript.DefinitelyTyped": "4.0.9",

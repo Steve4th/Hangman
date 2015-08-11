@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 
 namespace Hangman.DataAccess
 {
@@ -14,7 +15,15 @@ namespace Hangman.DataAccess
         public string GetWord()
         {
             var words = _wordListReader.GetAllWords();
-            var wordToReturn = words.First();
+
+            if (words.Count == 0)
+            {
+                throw new InvalidOperationException("There are no words to pick from. Unable to get a word");
+            }
+
+            var randomNumber = RandomNumberPicker.RandomNumberInRange(min: 0, max: words.Count - 1);
+
+            var wordToReturn = words[randomNumber];
 
             return wordToReturn;
         }

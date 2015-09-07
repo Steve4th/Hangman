@@ -7,17 +7,19 @@ Click here to learn more. http://go.microsoft.com/fwlink/?LinkId=518007
 
 var gulp = require('gulp');
 var del = require('del');
+var bower = require('gulp-main-bower-files');
+var project = require("./project.json");
 
+var webroot = "./" + project.webroot + "/";
 var paths = {
     scriptSrc: './scripts/**/*.js',
-    scriptDest: './wwwroot/scripts/',
+    scriptDest: webroot + 'scripts/',
     htmlSrc: './*.html',
-    htmlDest: './wwwroot/'
+    htmlDest: webroot,
+    bowerDest: webroot + 'lib/'
 }
 
-gulp.task('publish', function () {
-    return gulp.start(['publishHtml', 'publishJs']);
-});
+gulp.task('publish', ['publishHtml', 'publishJs', 'publishBower']);
 
 gulp.task('publishJs', function () {
     return gulp.src(paths.scriptSrc)
@@ -29,8 +31,15 @@ gulp.task('publishHtml', function () {
                .pipe(gulp.dest(paths.htmlDest));
 });
 
+gulp.task("publishBower", function () {
+    return gulp.src('./bower.json')
+                .pipe(bower())
+                .pipe(gulp.dest(paths.bowerDest));
+});
+
 gulp.task("clean", function () {
     del(paths.scriptDest + '**/*');    
     console.log(paths.htmlDest + '*.html');
     del(paths.htmlDest + '*.html');
+    del(paths.bowerDest + '**/*');
 });

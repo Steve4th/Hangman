@@ -4,6 +4,7 @@
   "private": true,
   "devDependencies": {
     "gulp": "^3.9.0",
-    "del" : "^2.0.1"
+    "del": "^2.0.1",
+    "gulp-main-bower-files" : "^1.2.1"
   }
 }

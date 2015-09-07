@@ -1,4 +1,4 @@
-﻿/// <binding BeforeBuild='validate-js' />
+﻿/// <binding AfterBuild='publish' />
 /// <reference path="typings/gulp/gulp.d.ts""/>
 /*
 This file in the main entry point for defining Gulp tasks and using Gulp plugins.
@@ -14,7 +14,7 @@ var paths = {
     htmlDest: "./wwwroot/"
 }
 
-gulp.task('default', function () {
+gulp.task('publish', function () {
     return gulp.start(['publishHtml', 'publishJs']);
 });
 

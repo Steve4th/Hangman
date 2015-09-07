@@ -6,19 +6,24 @@ Click here to learn more. http://go.microsoft.com/fwlink/?LinkId=518007
 */
 
 var gulp = require('gulp');
-var jshint = require('gulp-jshint');
-var jscs = require('gulp-jscs');
+
+var paths = {
+    scriptSrc: "./scripts/**/*.js",
+    scriptDest: "./wwwroot/scripts/",
+    htmlSrc: "./*.html",
+    htmlDest: "./wwwroot/"
+}
 
 gulp.task('default', function () {
-    // place code for your default task here
+    return gulp.start(['publishHtml', 'publishJs']);
 });
 
-gulp.task('validate-js', function () {
-    return gulp.src([
-		'./scripts/**/*.js',
-		'./*.js'
-    ])
-	.pipe(jscs())
-	.pipe(jshint())
-	.pipe(jshint.reporter('jshint-stylish', { verbose: true }));
+gulp.task('publishJs', function () {
+    return gulp.src(paths.scriptSrc)
+               .pipe(gulp.dest(paths.scriptDest));
+});
+
+gulp.task('publishHtml', function () {
+    return gulp.src(paths.htmlSrc)
+               .pipe(gulp.dest(paths.htmlDest));
 });

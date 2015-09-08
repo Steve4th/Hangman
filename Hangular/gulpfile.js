@@ -12,6 +12,7 @@ var project = require('./project.json');
 var concat = require('gulp-concat');
 var cssmin = require('gulp-cssmin');
 var jsmin = require('gulp-uglify');
+var htmlmin = require('gulp-minify-html');
 
 var webroot = "./" + project.webroot + "/";
 var paths = {
@@ -34,7 +35,12 @@ gulp.task('publishJs', function () {
 });
 
 gulp.task('publishHtml', function () {
+    var minifyOptions = {
+        empty: true         // do not remove empty attributes like ng-app
+    };
+
     return gulp.src(paths.htmlSrc)
+               .pipe(htmlmin(minifyOptions))
                .pipe(gulp.dest(paths.htmlDest));
 });
 

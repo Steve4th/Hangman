@@ -1,15 +1,37 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html ng-app>
 <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Hangular</title>
+    <link href="css/bootstraped.min.css" rel="stylesheet" />
 </head>
 <body>
-    <h1>Hangular</h1>
-    <p>Welcome to hangular, the game of hero's</p>
-    <div>{{1 + 12 + 356}}</div>
-    <div>{{1 + 121}}</div>
-   
-    <script src="lib/angular/angular.js"></script>
+    <div class="container">
+        <h1>Hangular</h1>
+        <p>Welcome to hangular, the game of hero's</p>
+        <div>{{1 + 12 + 356}}</div>
+        <div>{{1 + 121}}</div>
+     </div>
+
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <ul class="list-inline">
+                            <li><i class="icon-facebook icon-2x"></i></li>
+                            <li><i class="icon-twitter icon-2x"></i></li>
+                        </ul>
+
+                    </div>
+                    <div class="col-sm-6">
+                        <p class="pull-right">&copy; {{Date.now() | date:'dd.MM.yyyy'}} - Hangular by Steve Forth</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <script src="lib/angular/angular.js"></script>
+        <script src="lib/angular-ui-router/release/angular-ui-router.js"></script>
 </body>
 </html>

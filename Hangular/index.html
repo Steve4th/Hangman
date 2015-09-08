@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html ng-app>
+<html ng-app="hangular">
 <head>
     <meta charset="utf-8" />
     <title>Hangular</title>
@@ -11,7 +11,7 @@
     <div>{{1 + 12 + 356}}</div>
     <div>{{1 + 121}}</div>
 
-    <footer>
+    <footer ng-controller="footerCtrl">
         <div class="container">
             <div class="row">
                 <div class="col-sm-6">
@@ -22,7 +22,7 @@
 
                 </div>
                 <div class="col-sm-6">
-                    <p class="pull-right">&copy; {{Date.now() | date:'dd.MM.yyyy'}} - Hangular by Steve Forth</p>
+                    <p class="pull-right">&copy; {{year}} - Hangular by Steve Forth</p>
                 </div>
             </div>
         </div>
@@ -30,5 +30,6 @@
    
     <script src="lib/angular/angular.js"></script>
     <script src="lib/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="scripts/hangular.min.js"></script>
 </body>
 </html>

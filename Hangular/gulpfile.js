@@ -11,6 +11,7 @@ var bower = require('gulp-main-bower-files');
 var project = require('./project.json');
 var concat = require('gulp-concat');
 var cssmin = require('gulp-cssmin');
+var jsmin = require('gulp-uglify');
 
 var webroot = "./" + project.webroot + "/";
 var paths = {
@@ -27,6 +28,8 @@ gulp.task('publish', ['publishHtml', 'publishJs', 'publishBower', 'publishCss'])
 
 gulp.task('publishJs', function () {
     return gulp.src(paths.scriptSrc)
+               .pipe(concat('hangular.min.js'))
+               .pipe(jsmin())
                .pipe(gulp.dest(paths.scriptDest));
 });
 

@@ -1,37 +1,35 @@
-﻿<!DOCTYPE html>
-<html ng-app>
+<!DOCTYPE html>
+<html ng-app="hangular">
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Hangular</title>
     <link href="css/bootstraped.min.css" rel="stylesheet" />
 </head>
 <body>
-    <div class="container">
-        <h1>Hangular</h1>
-        <p>Welcome to hangular, the game of hero's</p>
-        <div>{{1 + 12 + 356}}</div>
-        <div>{{1 + 121}}</div>
-     </div>
+    <h1>Hangular</h1>
+    <p>Welcome to hangular, the game of hero's</p>
+    <div>{{1 + 12 + 356}}</div>
+    <div>{{1 + 121}}</div>
 
-        <footer>
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-6">
-                        <ul class="list-inline">
-                            <li><i class="icon-facebook icon-2x"></i></li>
-                            <li><i class="icon-twitter icon-2x"></i></li>
-                        </ul>
+    <footer ng-controller="footerCtrl">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    <ul class="list-inline">
+                        <li><i class="icon-facebook icon-2x"></i></li>
+                        <li><i class="icon-twitter icon-2x"></i></li>
+                    </ul>
 
-                    </div>
-                    <div class="col-sm-6">
-                        <p class="pull-right">&copy; {{Date.now() | date:'dd.MM.yyyy'}} - Hangular by Steve Forth</p>
-                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <p class="pull-right">&copy; {{year}} - Hangular by Steve Forth</p>
                 </div>
             </div>
-        </footer>
-
-        <script src="lib/angular/angular.js"></script>
-        <script src="lib/angular-ui-router/release/angular-ui-router.js"></script>
+        </div>
+    </footer>
+   
+    <script src="lib/angular/angular.js"></script>
+    <script src="lib/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="scripts/hangular.min.js"></script>
 </body>
 </html>

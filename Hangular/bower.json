@@ -1,10 +1,9 @@
 {
   "name": "Hangular",
-  "private": "true",
+  "private": true,
   "dependencies": {
     "angular": "^1.4.5",
-    "angular-ui-router": "^0.2.15",
     "angular-ui-bootstrap": "^0.13.4",
-    "bootstrap": "^3.3.5"
+    "bootstrap": "^3.3.5" 
   }
 }

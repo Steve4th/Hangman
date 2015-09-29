@@ -1,5 +1,5 @@
 ﻿/// <binding BeforeBuild='clean' AfterBuild='publish' Clean='clean' />
-/// <reference path="typings/gulp/gulp.d.ts""/>
+/// <reference path="typings/gulp/gulp.d.ts" />
 /*
 This file in the main entry point for defining Gulp tasks and using Gulp plugins.
 Click here to learn more. http://go.microsoft.com/fwlink/?LinkId=518007
@@ -13,6 +13,7 @@ var concat = require('gulp-concat');
 var cssmin = require('gulp-cssmin');
 var jsmin = require('gulp-uglify');
 var htmlmin = require('gulp-minify-html');
+var jasmine = require('gulp-jasmine');
 
 var webroot = "./" + project.webroot + "/";
 var paths = {
@@ -55,6 +56,11 @@ gulp.task('publishCss', function () {
                 .pipe(concat('bootstraped.min.css'))
                 .pipe(cssmin())
                 .pipe(gulp.dest(paths.cssDest));
+});
+
+gulp.task('runClientTests', function () {
+    return gulp.src(['./scripts/**/*Tests.js', './bower_components/angular/angular.min.js'])
+            .pipe(jasmine());
 });
 
 gulp.task("clean", function () {

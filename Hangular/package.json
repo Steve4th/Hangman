@@ -3,14 +3,14 @@
   "name": "ASP.NET",
   "private": true,
   "devDependencies": {
-    "gulp": "^3.9.0",
     "del": "^2.0.1",
-    "gulp-main-bower-files": "^1.2.1",
+    "gulp": "^3.9.0",
     "gulp-concat": "^2.6.0",
     "gulp-cssmin": "^0.1.7",
-    "gulp-uglify": "^1.4.0",
-    "gulp-minify-html": "^1.0.4",
     "gulp-jasmine": "^2.0.1",
+    "gulp-minify-html": "^1.0.4",
+    "gulp-uglify": "^1.4.0",
+    "main-bower-files": "^2.9.0",
     "tsd": "^0.6.4"
   }
 }

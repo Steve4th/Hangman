@@ -7,7 +7,7 @@ Click here to learn more. http://go.microsoft.com/fwlink/?LinkId=518007
 
 var gulp = require('gulp');
 var del = require('del');
-var bower = require('gulp-main-bower-files');
+var bowerFiles = require('main-bower-files');
 var project = require('./project.json');
 var concat = require('gulp-concat');
 var cssmin = require('gulp-cssmin');
@@ -17,7 +17,8 @@ var jasmine = require('gulp-jasmine');
 
 var webroot = "./" + project.webroot + "/";
 var paths = {
-    scriptSrc: './scripts/**/*.js',
+    testScriptSrc: './scripts/*Tests.js',
+    scriptSrc: './scripts/*.js',
     scriptDest: webroot + 'scripts/',
     htmlSrc: './*.html',
     htmlDest: webroot,
@@ -26,13 +27,20 @@ var paths = {
     cssDest: webroot + 'css/'
 }
 
-gulp.task('publish', ['publishHtml', 'publishJs', 'publishBower', 'publishCss']);
+gulp.task('publish', ['publishHtml', 'publishJs', 'publishTestJs', 'publishBower', 'publishCss']);
 
-gulp.task('publishJs', function () {
-    return gulp.src(paths.scriptSrc)
-               .pipe(concat('hangular.min.js'))
-               .pipe(jsmin())
-               .pipe(gulp.dest(paths.scriptDest));
+gulp.task('publishJs', function() {
+    return gulp.src([paths.scriptSrc, '!./scripts/*Tests.js'])
+        .pipe(concat('hangular.min.js'))
+        .pipe(jsmin())
+        .pipe(gulp.dest(paths.scriptDest));
+});
+
+gulp.task('publishTestJs', function() {
+    return gulp.src(paths.testScriptSrc)
+        .pipe(concat('hangular.tests.min.js'))
+        .pipe(jsmin())
+        .pipe(gulp.dest(paths.scriptDest));
 });
 
 gulp.task('publishHtml', function () {
@@ -46,8 +54,7 @@ gulp.task('publishHtml', function () {
 });
 
 gulp.task("publishBower", function () {
-    return gulp.src('./bower.json')
-                .pipe(bower())
+    return gulp.src(bowerFiles())
                 .pipe(gulp.dest(paths.bowerDest));
 });
 

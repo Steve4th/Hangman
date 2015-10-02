@@ -1,0 +1,6 @@
+﻿{
+  "Framework": "jasmine",
+  "Tests": [
+    {"Path": "scripts", "Includes": ["*.js"] } 
+  ]
+}

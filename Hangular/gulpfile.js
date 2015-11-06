@@ -32,7 +32,7 @@ gulp.task('publish', ['publishHtml', 'publishJs', 'publishTestJs', 'publishBower
 gulp.task('publishJs', function() {
     return gulp.src([paths.scriptSrc, '!./scripts/*Tests.js'])
         .pipe(concat('hangular.min.js'))
-        .pipe(jsmin())
+        //.pipe(jsmin())
         .pipe(gulp.dest(paths.scriptDest));
 });
 

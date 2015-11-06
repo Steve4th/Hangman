@@ -1,4 +1,7 @@
-﻿/// <reference path="../typings/angularjs/angular.d.ts" />
+﻿/// <reference path="./Game.ts" />
+/// <reference path="./PhraseService.ts" />
+/// <reference path="../typings/angularjs/angular.d.ts" />
+
 var app = angular.module('hangular', []);
 
 app.controller('footerCtrl', ['$scope', function ($scope) {
@@ -7,14 +10,14 @@ app.controller('footerCtrl', ['$scope', function ($scope) {
 
 app.controller('gameCtrl', ['$scope', function($scope) {
 
-        //var wordServ :IPhraseService = new FixedResponsePhraseService();
-        //var factory = new GameFactory();
-        //$scope.currentGame = factory.newGame(wordServ);
+        var wordServ : IPhraseService = new FixedResponsePhraseService();
+        var factory = new GameFactory();
+
+        $scope.currentGame = factory.newGame(wordServ);
         
-        $scope.letterGuess = "";
+        $scope.letterGuess = "a";
 
         $scope.guessLetter = () => {
-            //$scope.currentGame.tryLetterForMatch($scope.letterGuess());
-            $scope.guessMade = "You Clicked It";
+            $scope.currentGame.tryLetterForMatch($scope.letterGuess);
         }
 }]);

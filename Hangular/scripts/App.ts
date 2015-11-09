@@ -15,11 +15,12 @@ app.controller('gameCtrl', ['$scope', function($scope) {
 
     $scope.currentGame = factory.newGame(wordServ);
     $scope.showUnmatchedLetters = false;    
-    $scope.letterGuess = "a";
+    $scope.letterGuess = "";
 
     $scope.guessLetter = () => {
         $scope.currentGame.tryLetterForMatch($scope.letterGuess);
         $scope.showUnmatchedLetters = ($scope.currentGame.unmatchedLetters.length() > 0);
+        $scope.letterGuess = "";
     }
 
 }]);

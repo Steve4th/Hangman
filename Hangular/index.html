@@ -34,13 +34,12 @@
         </div>
         <div >
             <div class="form-group">
-                <input class="form-control" placeholder="Enter a letter" ng-model="letterGuess" maxlength="1"/>
-                <button ng-click="guessLetter()" class="btn btn-primary btn-sm">Guess</button>
+                <input class="form-control" placeholder="Enter a letter" ng-model="letterGuess" ng-change="guessLetter()" maxlength="1"/>
             </div>
         </div>
         <div ng-show="showUnmatchedLetters">
             <p>Unmatched Letters:</p>
-            <p ng-repeat="letter in currentGame.unmatchedLetters.letters">{{letter}}</p>
+            <span ng-repeat="letter in currentGame.unmatchedLetters.letters">{{letter}}&nbsp;</span>
         </div>
     </div>
 

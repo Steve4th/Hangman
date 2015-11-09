@@ -10,14 +10,16 @@ app.controller('footerCtrl', ['$scope', function ($scope) {
 
 app.controller('gameCtrl', ['$scope', function($scope) {
 
-        var wordServ : IPhraseService = new FixedResponsePhraseService();
-        var factory = new GameFactory();
+    var wordServ : IPhraseService = new FixedResponsePhraseService();
+    var factory = new GameFactory();
 
-        $scope.currentGame = factory.newGame(wordServ);
-        
-        $scope.letterGuess = "a";
+    $scope.currentGame = factory.newGame(wordServ);
+    $scope.showUnmatchedLetters = false;    
+    $scope.letterGuess = "a";
 
-        $scope.guessLetter = () => {
-            $scope.currentGame.tryLetterForMatch($scope.letterGuess);
-        }
+    $scope.guessLetter = () => {
+        $scope.currentGame.tryLetterForMatch($scope.letterGuess);
+        $scope.showUnmatchedLetters = ($scope.currentGame.unmatchedLetters.length() > 0);
+    }
+
 }]);

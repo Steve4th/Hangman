@@ -9,8 +9,10 @@ app.controller('gameCtrl', ['$scope', function ($scope) {
         var wordServ = new FixedResponsePhraseService();
         var factory = new GameFactory();
         $scope.currentGame = factory.newGame(wordServ);
+        $scope.showUnmatchedLetters = false;
         $scope.letterGuess = "a";
         $scope.guessLetter = function () {
             $scope.currentGame.tryLetterForMatch($scope.letterGuess);
+            $scope.showUnmatchedLetters = ($scope.currentGame.unmatchedLetters.length() > 0);
         };
     }]);

@@ -38,7 +38,7 @@
                 <button ng-click="guessLetter()" class="btn btn-primary btn-sm">Guess</button>
             </div>
         </div>
-        <div ng-hide="currentGame.umatchedLetters.Length == 0">
+        <div ng-show="showUnmatchedLetters">
             <p>Unmatched Letters:</p>
             <p ng-repeat="letter in currentGame.unmatchedLetters.letters">{{letter}}</p>
         </div>

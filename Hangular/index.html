@@ -30,17 +30,21 @@
         <h2>{{currentGame.activeWordDisplay}}</h2>
         <small class="text-muted">You have {{currentGame.attemptsRemaining}} guesses left</small>
         <div>
-            Enter Your Guess Here: {{letterGuess}}
+            Enter Your Guess Here:
         </div>
         <div >
             <div class="form-group">
-                <input class="form-control" placeholder="Enter a letter" data-bind="value: letterGuess, valueUpdate: 'keyup'" maxlength="1"/>
+                <input class="form-control" placeholder="Enter a letter" ng-model="letterGuess" maxlength="1"/>
                 <button ng-click="guessLetter()" class="btn btn-primary btn-sm">Guess</button>
             </div>
         </div>
+        <div ng-hide="currentGame.umatchedLetters.Length == 0">
+            <p>Unmatched Letters:</p>
+            <p ng-repeat="letter in currentGame.unmatchedLetters.letters">{{letter}}</p>
+        </div>
     </div>
 
-    <footer ng-controller="footerCtrl">
+    <footer ng-controller="footerCtrl" class="navbar navbar-fixed-bottom">
         <div class="container">
             <div class="row">
                 <div class="col-sm-6">

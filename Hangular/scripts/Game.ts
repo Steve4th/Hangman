@@ -1,5 +1,5 @@
 ﻿class LetterCollection {
-    private letters: string[];
+    public letters: string[];
 
     constructor() {
         this.letters = [];

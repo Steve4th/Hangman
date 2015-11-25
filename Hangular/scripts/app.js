@@ -17,3 +17,4 @@ app.controller('gameCtrl', ['$scope', function ($scope) {
             $scope.letterGuess = "";
         };
     }]);
+//# sourceMappingURL=App.js.map

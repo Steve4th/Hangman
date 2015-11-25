@@ -14,6 +14,7 @@ var cssmin = require('gulp-cssmin');
 var jsmin = require('gulp-uglify');
 var htmlmin = require('gulp-minify-html');
 var jasmine = require('gulp-jasmine');
+var svgmin = require('gulp-svgmin');
 
 var webroot = "./" + project.webroot + "/";
 var paths = {
@@ -24,10 +25,12 @@ var paths = {
     htmlDest: webroot,
     bowerDest: webroot + 'lib/',
     cssSrc: './bower_components/bootstrap/dist/css/*min.css',
-    cssDest: webroot + 'css/'
+    cssDest: webroot + 'css/',
+    svgSrc: './*.svg',
+    svgDest: webroot + 'svg/'
 }
 
-gulp.task('publish', ['publishHtml', 'publishJs', 'publishTestJs', 'publishBower', 'publishCss']);
+gulp.task('publish', ['publishHtml', 'publishJs', 'publishTestJs', 'publishBower', 'publishCss', 'publishSvg']);
 
 gulp.task('publishJs', function() {
     return gulp.src([paths.scriptSrc, '!./scripts/*Tests.js'])
@@ -63,6 +66,12 @@ gulp.task('publishCss', function () {
                 .pipe(concat('bootstraped.min.css'))
                 .pipe(cssmin())
                 .pipe(gulp.dest(paths.cssDest));
+});
+
+gulp.task('publishSvg', function() {
+    return gulp.src(paths.svgSrc)
+        .pipe(svgmin())
+        .pipe(gulp.dest(paths.svgDest));
 });
 
 gulp.task('runClientTests', function () {

@@ -85,4 +85,5 @@ gulp.task("clean", function () {
     del(paths.htmlDest + '*.html');
     del(paths.bowerDest + '**/*');
     del(paths.cssDest);
+    del(paths.svgDest);
 });

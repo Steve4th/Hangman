@@ -15,6 +15,7 @@ var jsmin = require('gulp-uglify');
 var htmlmin = require('gulp-minify-html');
 var jasmine = require('gulp-jasmine');
 var svgmin = require('gulp-svgmin');
+var merge = require('merge-stream');
 
 var webroot = "./" + project.webroot + "/";
 var paths = {
@@ -30,7 +31,7 @@ var paths = {
     svgDest: webroot + 'svg/'
 }
 
-gulp.task('publish', ['publishHtml', 'publishJs', 'publishTestJs', 'publishBower', 'publishCss', 'publishSvg']);
+gulp.task('publish', ['publishHtml', 'publishJs', 'publishTestJs', 'publishBower', 'publishJasmine', 'publishCss', 'publishSvg']);
 
 gulp.task('publishJs', function() {
     return gulp.src([paths.scriptSrc, '!./scripts/*Tests.js'])
@@ -57,8 +58,21 @@ gulp.task('publishHtml', function () {
 });
 
 gulp.task("publishBower", function () {
+    
     return gulp.src(bowerFiles())
                 .pipe(gulp.dest(paths.bowerDest));
+});
+
+gulp.task("publishJasmine", function() {
+    var js = gulp.src(['./bower_components/Jasmine/lib/jasmine-core/jasmine.js', './bower_components/Jasmine/lib/jasmine-core/jasmine-html.js', './bower_components/Jasmine/lib/jasmine-core/boot.js'])
+        .pipe(jsmin())
+        .pipe(gulp.dest(paths.bowerDest));
+
+    var css = gulp.src('./bower_components/Jasmine/lib/jasmine-core/jasmine.css')
+        .pipe(cssmin())
+        .pipe(gulp.dest(paths.cssDest));
+
+    return merge(js, css);
 });
 
 gulp.task('publishCss', function () {
